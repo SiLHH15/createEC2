@@ -48,7 +48,7 @@ resource "aws_launch_configuration" "silhh" {
 }
 
 resource "aws_security_group" "instance" {
-  name = "web"
+  name = "web1"
 
   ingress {
     from_port   = var.server_port

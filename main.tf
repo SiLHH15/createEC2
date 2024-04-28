@@ -1,6 +1,5 @@
 provider "aws" {
   region = "us-east-1"
-  profile= "silhh"
 }
 
 data "aws_vpc" "default" {

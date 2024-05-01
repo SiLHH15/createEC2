@@ -25,6 +25,7 @@ resource "aws_instance" "example" {
               EOF
   user_data_replace_on_change = true
   associate_public_ip_address = true
+  key_name = "silhh-key"
   tags = {
     Name = "my-ubuntu"
   }
@@ -56,5 +57,14 @@ resource "aws_security_group" "instance" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
-
+resource "aws_key_pair" "silhh-key" {
+  key_name   = "silhh-key"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDhRWeZ8bVIf0NtRzqsetB50YzgIkgBY0FFSBfCwLTc41KHwF+t0Dz0oUQFU9hHqOTABPUMFqX/o3n9fwjYj6rpPszTYF29EPPliUSM54Fd7vATOgWAUygBOEdVpBu6sDO3soms6+5PETgyu2FT6eWFvPXqTeiCHo1ShxrTDEgoEQPZslXeXc+hnID6xE1gQlh9TtQqkRhUBC6KOiXUCIT3pCHG7WlV+BLe2KU/4OaGLyE3v5okspcegYYtbRuj2s2t8sMY+zwU8dHMr+yJJHJ7bnPBuOdUF3qzPAyyyTfV9NG2ZUbLx+XZHpOnlbDy5yGAKsmQWmSD45Xnr51RAQQr root@192.168.110.132"
+}

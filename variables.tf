@@ -1,5 +1,5 @@
 variable "server_port" {
-  description = "The port that the server will use to handle HTTP requests"
+  description = "Open port SSH"
   type        = number
-  default     = 8080
+  default     = 22
 }
